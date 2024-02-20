@@ -1,0 +1,97 @@
+server:
+  port: 8081
+  tomcat:
+    relaxed-query-chars: "[,]"
+
+keycloak:
+  base-url: http://localhost:8080/realms/msa-demo-realm
+
+spring:
+  application:
+    name: MSA_REF_BIZ_ORDER
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:mem:MSA;DB_CLOSE_DELAY=-1;LOCK_TIMEOUT=2500;AUTOCOMMIT=OFF;DATABASE_TO_UPPER=true;
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+      maximum-pool-size: 10
+      connection-timeout: 30000 #30sec
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      pool-name: HikariCP
+      read-only: false
+      connection-test-query: select 1
+  h2:
+    console:
+      enabled: true
+      path: /h2console
+      settings:
+        web-allow-others: true
+        trace: false
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: msa-order
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: ${keycloak.base-url}
+            user-name-attribute: preferred_username
+            token-uri: ${keycloak.base-url}/protocol/openid-connect/token
+      resourceserver:
+        jwt:
+          issuer-uri: ${keycloak.base-url}
+
+#logging
+logging:
+  config: classpath:log4j2.xml
+  level:
+    org:
+      springframework:
+        security: info
+
+#openapi-swagger
+springdoc:
+  version: v1.0.0
+  packages-to-scan: com.samsungsds.msa
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    try-it-out-enabled: false
+    filter: false
+    syntax-highlight:
+      activated: true
+    operations-sorter: method
+    tag-sorter: alpha
+  api-docs:
+    path: /api-docs
+    groups:
+      enabled: true
+    cache:
+      disabled: true
+    default-consumes-media-type: application/json:charset=UTF-8
+    default-produces-media-type: application/json:charset=UTF-8
+
+msa:
+  security:
+    ignoring:
+      urlAntPatterns: /swagger-ui/**,/api-docs/**,/h2console/**,/authentication/v1/**
+    authorizeHttpRequest:
+      roleUrlMappings:
+       - role: msa_admin
+         urlPattern: /rest/api/v1/order/
+         method: POST
+       - role: msa_admin,msa_user
+         urlPattern: /rest/api/v1/order/
+         method: GET
