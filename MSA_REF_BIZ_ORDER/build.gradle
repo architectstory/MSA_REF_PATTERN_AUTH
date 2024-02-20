@@ -30,7 +30,5 @@ dependencies {
 
     /** ================ 1 Authentication Adapter ================ */
     //Authentication
-    implementation project(':MSA_REF_AUTH')
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
 }

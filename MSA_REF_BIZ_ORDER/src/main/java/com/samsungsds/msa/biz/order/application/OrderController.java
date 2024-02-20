@@ -1,15 +1,10 @@
 package com.samsungsds.msa.biz.order.application;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.Charset;
 import java.util.List;
@@ -30,7 +25,8 @@ public class OrderController {
     @PostMapping
     public void createOrder(OrderDTO orderDTO, @RequestHeader HttpHeaders httpHeaders){
         orderService.createOrder(orderDTO);
-        String authAccessToken = httpHeaders.get("Authorization").get(0);
+//        String authAccessToken = httpHeaders.get("Authorization").get(0);
+//        logger.debug(authAccessToken);
 
         orderService.createOrder(orderDTO);
     }

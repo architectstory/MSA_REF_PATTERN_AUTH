@@ -83,15 +83,3 @@ springdoc:
     default-consumes-media-type: application/json:charset=UTF-8
     default-produces-media-type: application/json:charset=UTF-8
 
-msa:
-  security:
-    ignoring:
-      urlAntPatterns: /swagger-ui/**,/api-docs/**,/h2console/**,/authentication/v1/**
-    authorizeHttpRequest:
-      roleUrlMappings:
-       - role: msa_admin
-         urlPattern: /rest/api/v1/order/
-         method: POST
-       - role: msa_admin,msa_user
-         urlPattern: /rest/api/v1/order/
-         method: GET
