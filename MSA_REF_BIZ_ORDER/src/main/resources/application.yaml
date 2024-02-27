@@ -3,8 +3,8 @@ server:
   tomcat:
     relaxed-query-chars: "[,]"
 
-keycloak:
-  base-url: http://localhost:8080/realms/msa-demo-realm
+#keycloak:
+#  base-url: http://localhost:8080/realms/msa-demo-realm
 
 spring:
   application:
@@ -37,21 +37,21 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     defer-datasource-initialization: true
 
-  security:
-    oauth2:
-      client:
-        registration:
-          keycloak:
-            client-id: msa-order
-            scope: openid
-        provider:
-          keycloak:
-            issuer-uri: ${keycloak.base-url}
-            user-name-attribute: preferred_username
-            token-uri: ${keycloak.base-url}/protocol/openid-connect/token
-      resourceserver:
-        jwt:
-          issuer-uri: ${keycloak.base-url}
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          keycloak:
+#            client-id: msa-order
+#            scope: openid
+#        provider:
+#          keycloak:
+#            issuer-uri: ${keycloak.base-url}
+#            user-name-attribute: preferred_username
+#            token-uri: ${keycloak.base-url}/protocol/openid-connect/token
+#      resourceserver:
+#        jwt:
+#          issuer-uri: ${keycloak.base-url}
 
 #logging
 logging:
@@ -83,3 +83,15 @@ springdoc:
     default-consumes-media-type: application/json:charset=UTF-8
     default-produces-media-type: application/json:charset=UTF-8
 
+#msa:
+#  security:
+#    ignoring:
+#      urlAntPatterns: /swagger-ui/**,/api-docs/**,/h2console/**,/authentication/v1/**
+#    authorizeHttpRequest:
+#      roleUrlMappings:
+#       - role: msa_admin
+#         urlPattern: /rest/api/v1/order
+#         method: POST
+#       - role: msa_admin,msa_user
+#         urlPattern: /rest/api/v1/order
+#         method: GET

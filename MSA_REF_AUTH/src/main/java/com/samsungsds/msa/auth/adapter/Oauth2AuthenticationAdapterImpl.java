@@ -23,13 +23,4 @@ public class Oauth2AuthenticationAdapterImpl implements AuthenticationAdapter<Oa
         return authenticationStrategy.authorization(oauth2Request);
     }
 
-//    @Override
-//    public SecurityFilterChain initiateAuthentication(Oauth2Request oauth2Request, ClientRegistrationRepository clientRegistrationRepository) throws Exception {
-//        return authenticationStrategy.oauth2ClientSecurityFilterChain(oauth2Request, clientRegistrationRepository);
-//    }
-//
-//    @Override
-//    public SecurityFilterChain configureOauth2ResourceServer(Oauth2Request oauth2Request) throws Exception {
-//        return authenticationStrategy.oauth2ResourceServerSecurityFilterChain(oauth2Request);
-//    }
 }

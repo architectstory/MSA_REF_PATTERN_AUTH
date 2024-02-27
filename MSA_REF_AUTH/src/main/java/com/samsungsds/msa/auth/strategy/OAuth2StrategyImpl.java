@@ -55,7 +55,7 @@ public class OAuth2StrategyImpl implements AuthenticationStrategy<Oauth2Request,
     }
     private OidcClientInitiatedLogoutSuccessHandler oidcClientInitiatedLogoutSuccessHandler(ClientRegistrationRepository clientRegistrationRepository){
         OidcClientInitiatedLogoutSuccessHandler oidcClientInitiatedLogoutSuccessHandler = new OidcClientInitiatedLogoutSuccessHandler(clientRegistrationRepository);
-        oidcClientInitiatedLogoutSuccessHandler.setPostLogoutRedirectUri("{baseUrl}/rest/api/v1/order");
+        oidcClientInitiatedLogoutSuccessHandler.setPostLogoutRedirectUri("{baseUrl}/swagger-ui.html");
         return new OidcClientInitiatedLogoutSuccessHandler(clientRegistrationRepository);
     }
 
