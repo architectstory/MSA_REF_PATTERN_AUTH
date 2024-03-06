@@ -29,31 +29,4 @@ public class OrderAggregate {
     public void deleteOrder(OrderVO orderVO){
         orderRepository.deleteOrder(orderVO);
     }
-//    public static void main(String[] args){
-//        OrderAggregate orderAggregate = new OrderAggregate();
-//        OrderVO orderVO = new OrderVO();
-//        orderVO.setId(1);
-//        orderVO.setOrigin("Colombia");
-//        orderVO.setCount(1);
-//        orderVO.setType("americano");
-//        orderVO.setCost(100);
-//
-//        System.out.println("===========================");
-//
-//        OrderRepository orderRepository1 = new OrderRepository() {
-//            @Override
-//            public void saveOrder(OrderVO orderVO) {
-//                System.out.println("----------orderVO");
-//                System.out.println(orderVO.getCount());
-//            }
-//
-//            @Override
-//            public List<OrderVO> orders() {
-//                return null;
-//            }
-//        };
-//        orderRepository1.saveOrder(orderVO);
-//
-//        //        orderAggregate.saveOrder(orderVO);
-//    }
 }
