@@ -1,11 +1,7 @@
 package com.samsungsds.msa.auth.strategy;
 
-import com.samsungsds.msa.auth.oidc.MsaJwtRealmRoleConverter;
-import com.samsungsds.msa.auth.oidc.UsernameSubClaimAdapter;
-import com.samsungsds.msa.auth.role.AuthorizeHttpRequest;
-import com.samsungsds.msa.auth.role.RoleUrlMapping;
-import com.samsungsds.msa.auth.oauth2.Oauth2Request;
-import com.samsungsds.msa.auth.oauth2.SecurityIgnoring;
+import com.samsungsds.msa.auth.adapter.Oauth2Request;
+import com.samsungsds.msa.auth.adapter.SecurityIgnoring;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;

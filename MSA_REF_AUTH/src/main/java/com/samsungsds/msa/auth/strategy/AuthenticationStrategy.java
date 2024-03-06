@@ -1,6 +1,6 @@
 package com.samsungsds.msa.auth.strategy;
 
-import com.samsungsds.msa.auth.oauth2.Oauth2Request;
+import com.samsungsds.msa.auth.adapter.Oauth2Request;
 import org.springframework.security.web.SecurityFilterChain;
 
 public interface AuthenticationStrategy<Request, Response> {

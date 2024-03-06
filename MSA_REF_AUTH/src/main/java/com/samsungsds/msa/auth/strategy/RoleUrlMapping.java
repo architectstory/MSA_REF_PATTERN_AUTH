@@ -1,4 +1,4 @@
-package com.samsungsds.msa.auth.role;
+package com.samsungsds.msa.auth.strategy;
 
 import lombok.Data;
 

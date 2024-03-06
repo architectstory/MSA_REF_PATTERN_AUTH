@@ -1,4 +1,4 @@
-package com.samsungsds.msa.auth.oauth2.token;
+package com.samsungsds.msa.auth.token;
 
 import lombok.Data;
 

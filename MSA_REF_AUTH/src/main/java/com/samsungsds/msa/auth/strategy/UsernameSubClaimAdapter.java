@@ -1,4 +1,4 @@
-package com.samsungsds.msa.auth.oidc;
+package com.samsungsds.msa.auth.strategy;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.oauth2.jwt.MappedJwtClaimSetConverter;

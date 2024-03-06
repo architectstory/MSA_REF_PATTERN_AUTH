@@ -1,6 +1,6 @@
-package com.samsungsds.msa.auth.oauth2;
+package com.samsungsds.msa.auth.adapter;
 
-import com.samsungsds.msa.auth.role.AuthorizeHttpRequest;
+import com.samsungsds.msa.auth.strategy.AuthorizeHttpRequest;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
